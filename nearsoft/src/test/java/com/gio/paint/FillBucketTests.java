@@ -1,11 +1,11 @@
 package com.gio.paint;
 
-import static org.junit.Assert.*;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.awt.Color;
 import java.awt.Point;
 
-import org.junit.Test;
 
 public class FillBucketTests {
 	
@@ -15,12 +15,12 @@ public class FillBucketTests {
 		Point p = new Point(0, 0);
 		Color c = Color.white; 
 		Color fc = Color.red;
-		Canvas canvas = Canvas.CreateWithSize(96, 96);		
+		Canvas canvas = Canvas.CreateWithSize(50, 50);		
 		
 		// act
 		canvas.fillBucket(p, c, fc);	
 		
 		// assert
-		System.out.println(canvas);
+		Assert.assertEquals(Color.red, canvas.GetPixel(0, 5).getColor());
 	}	
 }
