@@ -44,13 +44,40 @@ public class Canvas {
 	@Override
 	public String toString() {
 		StringBuilder outout = new StringBuilder();
-		for (int x = 0; x < width; x++) {
-			for(int y = 0; y < height; y++)
+		addXaxis(outout);
+		
+		for (int y = 0; y < height; y++) {
+			outout.append(y).append(" ");
+			for(int x = 0; x < width; x++)
 			{
-				outout.append(GetPixel(x, y).getColor()).append(" - ");
+				outout.append(mapColorToLetter(GetPixel(x, y).getColor())).append(" - ");				
 			}			
 			outout.append("\n");
 		}
 		return outout.toString();
+	}
+
+	private void addXaxis(StringBuilder outout) {
+		outout.append("  ");
+		for (int x = 0; x < width; x++) {
+			outout.append(x).append(" - ");
+		}
+		outout.append("\n");
+	}
+	
+	private char mapColorToLetter(Color c){
+		if(c == Color.RED){
+			return 'r';
+		}
+		
+		if(c == Color.BLACK){
+			return 'b';
+		}		
+		
+		if(c == Color.GREEN){
+			return 'g';
+		}
+		
+		return 'w';
 	}
 }
