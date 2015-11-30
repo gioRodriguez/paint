@@ -5,13 +5,13 @@ import java.awt.Point;
 
 public interface Pixel extends NullObject {
 
-	Pixel GetUp();
+	Pixel GetNorth();
 
-	Pixel GetDown();
+	Pixel GetSouth();
 
-	Pixel GetLeft();
+	Pixel GetWest();
 
-	Pixel GetRight();
+	Pixel GetEast();
 
 	Color getColor();
 

@@ -26,7 +26,7 @@ public class GioPixel implements NullObject, Pixel {
 	 * @see com.gio.paint.Pixcel#GetUp()
 	 */
 	@Override
-	public Pixel GetUp()
+	public Pixel GetNorth()
 	{
 		return _canvas.GetPixel(_point.x, _point.y - 1);
 	}
@@ -35,7 +35,7 @@ public class GioPixel implements NullObject, Pixel {
 	 * @see com.gio.paint.Pixcel#GetDown()
 	 */
 	@Override
-	public Pixel GetDown()
+	public Pixel GetSouth()
 	{
 		return _canvas.GetPixel(_point.x, _point.y + 1);
 	}
@@ -44,7 +44,7 @@ public class GioPixel implements NullObject, Pixel {
 	 * @see com.gio.paint.Pixcel#GetLeft()
 	 */
 	@Override
-	public Pixel GetLeft()
+	public Pixel GetWest()
 	{
 		return _canvas.GetPixel(_point.x - 1, _point.y);
 	}
@@ -53,7 +53,7 @@ public class GioPixel implements NullObject, Pixel {
 	 * @see com.gio.paint.Pixcel#GetRight()
 	 */
 	@Override
-	public Pixel GetRight()
+	public Pixel GetEast()
 	{
 		return _canvas.GetPixel(_point.x + 1, _point.y);
 	}

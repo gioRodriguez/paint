@@ -35,25 +35,25 @@ public class FillBucket {
 		while (!pixels.isEmpty()) {
 			w = pixels.peek();
 			e = pixels.peek();
-			pixels.poll();
-			while (!w.GetRight().isNull() && w.GetRight().getColor() == originalColor) {
-				w = w.GetRight();
+			pixels.poll();			
+			while (!e.GetEast().isNull() && e.GetEast().getColor() == originalColor) {
+				e = e.GetEast();
 			}
-			while (!e.GetLeft().isNull() && e.GetLeft().getColor() == originalColor) {
-				e = e.GetLeft();
-			}
-			while (!e.equals(w)) {
-				e.setColor(finalColor);
-				if (!e.GetUp().isNull() && e.GetUp().getColor() == originalColor) {
-					pixels.add(e.GetUp());
+			while (!w.GetWest().isNull() && w.GetWest().getColor() == originalColor) {
+				w = w.GetWest();
+			}			
+			while (!w.equals(e)) {
+				w.setColor(finalColor);
+				if (!w.GetNorth().isNull() && w.GetNorth().getColor() == originalColor) {
+					pixels.add(w.GetNorth());
 				}
-				if (!e.GetDown().isNull() && e.GetDown().getColor() == originalColor) {
-					pixels.add(e.GetDown());
+				if (!w.GetSouth().isNull() && w.GetSouth().getColor() == originalColor) {
+					pixels.add(w.GetSouth());
 				}
-				e = e.GetRight();
+				w = w.GetEast();
 			}
-			if (e.equals(w)) {
-				e.setColor(finalColor);
+			if (w.equals(e)) {
+				w.setColor(finalColor);
 			}
 		}
 	}

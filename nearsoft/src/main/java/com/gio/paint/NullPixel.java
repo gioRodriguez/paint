@@ -11,25 +11,25 @@ public class NullPixel implements Pixel {
 	}
 
 	@Override
-	public Pixel GetUp() {
+	public Pixel GetNorth() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Pixel GetDown() {
+	public Pixel GetSouth() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Pixel GetLeft() {
+	public Pixel GetWest() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Pixel GetRight() {
+	public Pixel GetEast() {
 		// TODO Auto-generated method stub
 		return null;
 	}

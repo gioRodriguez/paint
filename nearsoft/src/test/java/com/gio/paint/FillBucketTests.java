@@ -35,25 +35,25 @@ public class FillBucketTests {
 		Pixel upperLine = initialPixel;
 		for(int upperLineCount = 0; upperLineCount < squareSize - 1; upperLineCount++){
 			upperLine.setColor(desiredColor);
-			upperLine = upperLine.GetRight();
+			upperLine = upperLine.GetEast();
 		}
 		
 		Pixel rigthLine = upperLine;
 		for(int rigthLineCount = 0; rigthLineCount < squareSize - 1; rigthLineCount++){
 			rigthLine.setColor(desiredColor);
-			rigthLine = rigthLine.GetDown();
+			rigthLine = rigthLine.GetSouth();
 		}
 		
 		Pixel bottonLine = rigthLine;
 		for(int bottomLineCount = 0; bottomLineCount < squareSize - 1; bottomLineCount++){
 			bottonLine.setColor(desiredColor);
-			bottonLine = bottonLine.GetLeft();
+			bottonLine = bottonLine.GetWest();
 		}
 		
 		Pixel leftLine = bottonLine;
 		for(int leftLineCount = 0; leftLineCount < squareSize - 1; leftLineCount++){
 			leftLine.setColor(desiredColor);
-			leftLine = leftLine.GetUp();
+			leftLine = leftLine.GetNorth();
 		}
 	}
 	
@@ -68,7 +68,7 @@ public class FillBucketTests {
 		int pixelsInsideSquare = (int) Math.pow(4 - 2, 2);
 		
 		// act				
-		canvas.fillBucket(initialPixel.GetRight().GetDown().getPoint(), fc);
+		canvas.fillBucket(initialPixel.GetEast().GetSouth().getPoint(), fc);
 		int pixelsPaitedByFillBucket = canvas.countPixelsByColor(fc);
 		
 		// assert
