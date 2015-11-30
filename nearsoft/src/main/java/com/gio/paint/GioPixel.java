@@ -28,7 +28,7 @@ public class GioPixel implements NullObject, Pixel {
 	@Override
 	public Pixel GetUp()
 	{
-		return _canvas.GetPixel(_point.x, _point.y + 1);
+		return _canvas.GetPixel(_point.x, _point.y - 1);
 	}
 	
 	/* (non-Javadoc)
@@ -37,7 +37,7 @@ public class GioPixel implements NullObject, Pixel {
 	@Override
 	public Pixel GetDown()
 	{
-		return _canvas.GetPixel(_point.x, _point.y - 1);
+		return _canvas.GetPixel(_point.x, _point.y + 1);
 	}
 	
 	/* (non-Javadoc)
@@ -76,11 +76,33 @@ public class GioPixel implements NullObject, Pixel {
 	 * @see com.gio.paint.Pixcel#get_point()
 	 */
 	@Override
-	public Point get_point() {
+	public Point getPoint() {
 		return _point;
 	}
 
 	public boolean isNull() {
 		return false;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null){
+			return false;
+		}
+		if(!(obj instanceof GioPixel)){
+			return false;
+		}
+		if(obj == this){
+			return true;
+		}
+		
+		GioPixel gioP = (GioPixel)obj;
+		return gioP.getColor() == this.getColor() &&
+				gioP.getPoint().equals(this.getPoint());
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.getPoint().hashCode() + this.getColor().hashCode();
 	}
 }

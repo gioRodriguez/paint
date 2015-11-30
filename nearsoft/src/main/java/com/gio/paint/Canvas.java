@@ -15,8 +15,7 @@ public class Canvas {
 		
 		_canvas = new GioPixel[width][height];
 		
-		for(int x = 0; x < width; x++)
-		{
+		for(int x = 0; x < width; x++){
 			for (int y = 0; y < height; y++) {
 				_canvas[x][y] = new GioPixel(this, Color.white, new Point(x, y));
 			}
@@ -27,7 +26,8 @@ public class Canvas {
 		return new Canvas(width, high);
 	}
 
-	public void fillBucket(Point p, Color originalColor, Color finalColor) {
+	public void fillBucket(Point p, Color finalColor) {
+		Color originalColor = GetPixel(p.x, p.y).getColor();
 		FillBucket fillBucket = FillBucket.Create(GetPixel(p.x, p.y), originalColor, finalColor);	
 		fillBucket.draw();
 	}
@@ -40,7 +40,23 @@ public class Canvas {
 		
 		return _canvas[x][y];
 	}
-
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null){
+			return false;
+		}
+		if(!(obj instanceof Canvas)){
+			return false;
+		}
+		if(obj == this){
+			return true;
+		}
+		
+		Canvas canvas = (Canvas)obj;
+		return canvas._canvas.hashCode() == this._canvas.hashCode();
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder outout = new StringBuilder();
@@ -79,5 +95,21 @@ public class Canvas {
 		}
 		
 		return 'w';
+	}
+	
+	int countPixelsByColor(Color color){
+		int count = 0;
+		for(int x = 0; x < width; x++){
+			for (int y = 0; y < height; y++) {
+				if(_canvas[x][y].getColor() == color){
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+	
+	int totalPixels(){
+		return width * height;
 	}
 }

@@ -47,7 +47,7 @@ public class NullPixel implements Pixel {
 	}
 
 	@Override
-	public Point get_point() {
+	public Point getPoint() {
 		// TODO Auto-generated method stub
 		return null;
 	}

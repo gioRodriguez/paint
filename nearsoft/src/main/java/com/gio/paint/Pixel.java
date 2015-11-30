@@ -17,6 +17,6 @@ public interface Pixel extends NullObject {
 
 	void setColor(Color _color);
 
-	Point get_point();
+	Point getPoint();
 
 }
